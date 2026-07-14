@@ -1,0 +1,9 @@
+{
+  "speaker_id": "female_assistant",
+  "display_name": "Female Assistant",
+  "type": "prebuilt",
+  "language": "uz",
+  "reference_audio": "female_assistant.wav",
+  "model_path": "models/tts/female_assistant",
+  "permission": "owned_by_user"
+}

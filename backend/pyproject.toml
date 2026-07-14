@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "uzbek-local-voice-ai"
+version = "0.1.0"
+description = "Local Uzbek voice assistant with STT, LLM, and TTS"
+authors = ["uzbek-local-voice-ai <noreply@example.com>"]
+packages = [
+  { include = "app" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.111.1"
+uvicorn = { version = "^0.24.0", extras = ["standard"] }
+pydantic = "^2.9.0"
+python-multipart = "^0.0.6"
+httpx = "^0.24.1"
+python-dotenv = "^1.0.0"
+pydub = "^0.27.0"
+requests = "^2.31.0"
+websockets = "^11.0.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.5.0"]
+build-backend = "poetry.core.masonry.api"

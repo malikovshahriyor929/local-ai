@@ -1,0 +1,9 @@
+{
+  "speaker_id": "teacher",
+  "display_name": "Teacher Voice",
+  "type": "prebuilt",
+  "language": "uz",
+  "reference_audio": "teacher.wav",
+  "model_path": "models/tts/teacher",
+  "permission": "owned_by_user"
+}

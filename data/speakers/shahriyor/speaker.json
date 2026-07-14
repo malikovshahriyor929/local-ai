@@ -1,0 +1,9 @@
+{
+  "speaker_id": "shahriyor",
+  "display_name": "Shahriyor Voice",
+  "type": "cloned_or_finetuned",
+  "language": "uz",
+  "reference_audio": "reference.wav",
+  "model_path": "models/tts/shahriyor",
+  "permission": "owned_by_user"
+}
