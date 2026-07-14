@@ -1,0 +1,13 @@
+# Optional extras for TTS fine-tuning (backend/scripts/train_tts.py).
+# Install into the same venv as requirements.txt AND requirements-dataset.txt:
+#   pip install -r requirements-training.txt
+#
+# Pinned from a real install verified on Python 3.11 / Apple Silicon (MPS) on 2026-07-14.
+# transformers is pinned below coqui-tts's own unbounded `>=4.57` requirement because
+# transformers>=5.0 removed `isin_mps_friendly` from transformers.pytorch_utils, which
+# breaks coqui-tts's top-level import (TTS/__init__.py eagerly imports XTTS, which needs it)
+# even though single-speaker VITS training never touches XTTS/transformers at all.
+transformers==4.57.6
+torch==2.13.0
+torchaudio==2.11.0
+coqui-tts[codec]==0.27.5

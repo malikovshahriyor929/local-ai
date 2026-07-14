@@ -1,0 +1,33 @@
+llm:
+  default:
+    provider: huggingface
+    repository: bartowski/Qwen2.5-7B-Instruct-GGUF
+    filename: Qwen2.5-7B-Instruct-Q4_K_M.gguf
+    local_path: models/llm/model.gguf
+    quantization: Q4_K_M
+    expected_size_gb: 4.7
+  quality:
+    provider: huggingface
+    repository: bartowski/Qwen2.5-7B-Instruct-GGUF
+    filename: Qwen2.5-7B-Instruct-Q5_K_M.gguf
+    local_path: models/llm/model-q5_k_m.gguf
+    quantization: Q5_K_M
+    expected_size_gb: 5.4
+stt:
+  default:
+    provider: huggingface
+    repository: uzinfocom-edu-ai/asr-uz-fastconformer-large
+    local_path: models/stt/fastconformer
+    expected_size_gb: 1.2
+tts:
+  base:
+    provider: huggingface
+    repository: Qwen/Qwen3-TTS-12Hz-0.6B-Base
+    local_path: models/tts/qwen3-tts-base
+    expected_size_gb: 1.4
+embeddings:
+  default:
+    provider: huggingface
+    repository: intfloat/multilingual-e5-small
+    local_path: models/embeddings/model
+    expected_size_gb: 0.5

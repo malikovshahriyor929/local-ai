@@ -1,0 +1,11 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/audio/synthesize/route": "/api/audio/synthesize",
+  "/api/audio/transcribe/route": "/api/audio/transcribe",
+  "/api/chat/route": "/api/chat",
+  "/api/system/health/route": "/api/system/health",
+  "/api/system/models/route": "/api/system/models",
+  "/api/voice-chat/route": "/api/voice-chat",
+  "/page": "/"
+}

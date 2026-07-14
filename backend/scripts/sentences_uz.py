@@ -1,0 +1,61 @@
+"""Default Uzbek reading set for single-speaker TTS dataset recording.
+
+Roughly 50 short, everyday sentences (~5-10 minutes of reading at a natural
+pace) covering greetings, numbers, dates, questions, tech terms, and the
+oʻ/gʻ/q/x/h/ng sounds that are easy to mispronounce or clip. This is a
+starting set, not a scientifically balanced phonetic corpus - add more
+sentences (or point --sentences-file at your own list) for a stronger voice.
+"""
+
+DEFAULT_SENTENCES: list[str] = [
+    "Assalomu alaykum, ismingiz nima?",
+    "Yaxshimisiz? Bugun ob-havo juda yaxshi.",
+    "Mening ismim Shahriyor, men Toshkentda yashayman.",
+    "Bugun soat oʻn ikkida uchrashamiz.",
+    "Iltimos, menga bir stakan suv bering.",
+    "Rahmat, sizga ham yaxshi kunlar tilayman.",
+    "Kechirasiz, bu yerdan bozorga qanday boraman?",
+    "Bugun ertalab nonushta qildingizmi?",
+    "Men oʻzbek tilida gapirishni yaxshi koʻraman.",
+    "Bu kitobni oʻqib chiqdingizmi?",
+    "Toshkent oʻzbekistonning poytaxti hisoblanadi.",
+    "Gʻazalkent tog' etaklarida joylashgan chiroyli qishloq.",
+    "Bugun bozorda gʻalati bir voqea boʻldi.",
+    "Qiziq, ertaga havo qanday boʻlar ekan?",
+    "Bu masala juda muhim, uni diqqat bilan koʻrib chiqamiz.",
+    "Xush kelibsiz, xonangiz ikkinchi qavatda joylashgan.",
+    "Bugun ishga bir soat kech qoldim.",
+    "Ertalab soat oltida uygʻonaman.",
+    "Kecha kechqurun kinoteatrga bordik.",
+    "Bugun kuni 2026-yil 14-iyul.",
+    "Ushbu mahsulotning narxi yuz yigirma besh ming soʻm.",
+    "Chegirma oʻn ikki foizni tashkil qiladi.",
+    "Iltimos, telefon raqamingizni qoldiring: plyus to‘qqiz to‘qqiz sakkiz to‘qsan nol bir yigirma uch qirq besh oltmish yetti.",
+    "Uchrashuv soat oʻn sakkiz oʻttizda boshlanadi.",
+    "Bu dastur sun’iy intellekt yordamida ishlaydi.",
+    "Kompyuter dasturlash tilini oʻrganish qiziqarli.",
+    "Menejer bugun yig'ilishni ikkinchi xonada oʻtkazadi.",
+    "Onam bozordan yangi meva-sabzavot sotib oldi.",
+    "Bolalar bogʻda oʻynashni juda yaxshi koʻrishadi.",
+    "Yozda dengiz boʻyida dam olish ajoyib.",
+    "Qishda qor yogʻishi bolalarni xursand qiladi.",
+    "Bugun kechqurun mehmonlar keladi, uyni tozalaylik.",
+    "Universitetda talabalar imtihonga tayyorlanmoqda.",
+    "Doktor bemorni diqqat bilan tekshirib chiqdi.",
+    "Bank xizmatidan foydalanish uchun ariza toʻldiring.",
+    "Yangi mashina narxi ancha qimmatlashdi.",
+    "Bu masalani hal qilish uchun vaqt kerak.",
+    "Xorijiy tillarni oʻrganish kelajak uchun foydali.",
+    "Interfeys foydalanuvchi uchun juda qulay yaratilgan.",
+    "Server ishlamay qoldi, texnik yordam chaqiring.",
+    "Bugun ofisda internet aloqasi uzilib qoldi.",
+    "Ertaga ertalab poyezdga chiqishimiz kerak.",
+    "Samolyot ikki soatdan keyin qoʻnadi.",
+    "Bu yerda fotosurat olish mumkinmi?",
+    "Kechirasiz, sizni yaxshi eshitmadim, qaytaring iltimos.",
+    "Juda qiziq hikoya ekan, davomini aytib bering!",
+    "Nahotki bugun ham yomgʻir yogʻsa?",
+    "Voy, bu juda ajoyib yangilik-ku!",
+    "Xafa boʻlmang, hammasi yaxshi boʻladi.",
+    "Sog' boʻling, koʻrishguncha xayr!",
+]

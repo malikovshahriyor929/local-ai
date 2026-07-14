@@ -4,8 +4,9 @@ class Settings(BaseSettings):
     stt_engine: str = "faster-whisper"
     stt_language: str = "uz"
     tts_engine: str = "matcha"
-    llm_base_url: str = "http://localhost:11434"
-    llm_model: str = "gpt-4o-mini"  # default local-like model name
+    # Compatibility adapter for the project-owned FastAPI service, never Ollama.
+    llm_base_url: str = "http://127.0.0.1:8001"
+    llm_model: str = "models/llm/model.gguf"
     default_speaker: str = "female_assistant"
     audio_output_dir: str = "../data/audio_output"
     speakers_dir: str = "../data/speakers"

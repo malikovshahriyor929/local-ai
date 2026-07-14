@@ -10,28 +10,24 @@ class LocalLLMClient(BaseLLMClient):
 
     def _build_payload(self, messages: List[Dict[str, str]]) -> Dict:
         return {
-            "model": self.model,
-            "messages": [
-                {"role": "system", "content": self.system_prompt},
-                *messages,
-            ],
-            "temperature": 0.7,
+            "messages": [{"role": "system", "content": self.system_prompt}, *messages],
+            "language": "uz",
         }
 
     def chat_completion(self, messages: List[Dict[str, str]]) -> str:
         with httpx.Client(timeout=120) as client:
-            response = client.post(f"{self.base_url}/v1/chat/completions", json=self._build_payload(messages))
+            response = client.post(f"{self.base_url}/api/llm/chat", json=self._build_payload(messages))
             response.raise_for_status()
             payload = response.json()
-            choices = payload.get("choices", [])
-            if not choices:
+            answer = payload.get("answer")
+            if not answer:
                 raise RuntimeError("LLM returned no choices")
-            return choices[0].get("message", {}).get("content", "")
+            return str(answer)
 
     def stream_chat_completion(self, messages: List[Dict[str, str]]):
         with httpx.Client(timeout=120) as client:
             response = client.post(
-                f"{self.base_url}/v1/chat/completions",
+                f"{self.base_url}/api/llm/chat/stream",
                 json=self._build_payload(messages),
                 stream=True,
             )

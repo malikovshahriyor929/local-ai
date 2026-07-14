@@ -1,0 +1,5 @@
+# Optional extras for recording and preparing a TTS dataset.
+# Install into the same venv as requirements.txt:
+#   pip install -r requirements-dataset.txt
+sounddevice==0.5.5
+soundfile==0.13.1

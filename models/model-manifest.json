@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "models": [
+    {
+      "name": "embeddings",
+      "repository": "intfloat/multilingual-e5-small",
+      "revision": "main",
+      "filename": null,
+      "localPath": "models/embeddings/model",
+      "license": "See model repository",
+      "downloadDate": "2026-07-14T17:27:47.231443+00:00",
+      "sizeBytes": 0,
+      "status": "missing"
+    },
+    {
+      "name": "llm",
+      "repository": "bartowski/Qwen2.5-7B-Instruct-GGUF",
+      "revision": "main",
+      "filename": "Qwen2.5-7B-Instruct-Q4_K_M.gguf",
+      "localPath": "models/llm/model.gguf",
+      "license": "See model repository",
+      "downloadDate": "2026-07-14T17:48:31.751980+00:00",
+      "sizeBytes": 4683074240,
+      "status": "valid"
+    },
+    {
+      "name": "stt",
+      "repository": "uzinfocom-edu-ai/asr-uz-fastconformer-large",
+      "revision": "main",
+      "filename": null,
+      "localPath": "models/stt/fastconformer",
+      "license": "See model repository",
+      "downloadDate": "2026-07-14T17:48:32.060362+00:00",
+      "sizeBytes": 459227348,
+      "status": "valid"
+    },
+    {
+      "name": "tts",
+      "repository": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+      "revision": "main",
+      "filename": null,
+      "localPath": "models/tts/qwen3-tts-base",
+      "license": "See model repository",
+      "downloadDate": "2026-07-14T17:48:32.363384+00:00",
+      "sizeBytes": 2516107404,
+      "status": "valid"
+    }
+  ]
+}

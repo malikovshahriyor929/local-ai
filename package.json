@@ -1,0 +1,21 @@
+{
+  "name": "uzbek-local-voice-ai",
+  "private": true,
+  "packageManager": "pnpm@10.14.0",
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail --names web,ai \"pnpm dev:web\" \"pnpm dev:ai\"",
+    "dev:web": "pnpm --filter @uzbek-local-voice-ai/web dev",
+    "dev:ai": "uv run --project apps/ai-service --extra llm --extra stt --extra tts uvicorn app.main:app --app-dir apps/ai-service --host 127.0.0.1 --port 8001 --reload",
+    "dev:llm": "uv run --project apps/ai-service python scripts/run_llama_server.py",
+    "setup": "uv run --project apps/ai-service python scripts/setup_project.py",
+    "health": "pnpm --filter @uzbek-local-voice-ai/web health",
+    "models:download": "uv run --project apps/ai-service python scripts/download_models.py",
+    "models:verify": "uv run --project apps/ai-service python scripts/download_models.py verify",
+    "test": "pnpm --filter @uzbek-local-voice-ai/web test && uv run --project apps/ai-service pytest tests/unit",
+    "lint": "pnpm --filter @uzbek-local-voice-ai/web lint",
+    "typecheck": "pnpm --filter @uzbek-local-voice-ai/web typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

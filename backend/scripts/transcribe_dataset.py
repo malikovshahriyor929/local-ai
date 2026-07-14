@@ -1,5 +1,9 @@
-from pathlib import Path
 import argparse
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from app.stt.whisper_stt import FasterWhisperSTT
 
 DESCRIPTION = "Generate transcripts for a folder of Uzbek dataset audio files."

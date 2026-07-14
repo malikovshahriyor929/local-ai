@@ -1,0 +1,11 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/audio/synthesize/route": "app/api/audio/synthesize/route.js",
+  "/api/audio/transcribe/route": "app/api/audio/transcribe/route.js",
+  "/api/chat/route": "app/api/chat/route.js",
+  "/api/system/health/route": "app/api/system/health/route.js",
+  "/api/system/models/route": "app/api/system/models/route.js",
+  "/api/voice-chat/route": "app/api/voice-chat/route.js",
+  "/page": "app/page.js"
+}
