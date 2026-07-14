@@ -1,5 +1,4 @@
-from pydantic import BaseSettings
-from pathlib import Path
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     stt_engine: str = "faster-whisper"
@@ -13,7 +12,6 @@ class Settings(BaseSettings):
     processed_audio_dir: str = "../data/processed_audio"
     system_prompt: str = "Siz tabiiy va hurmatli o‘zbek tilida javob beradigan lokal yordamchisiz. Foydalanuvchi bilan samimiy va aniq muloqot qiling."
 
-    class Config:
-        env_file = ".env"
+    model_config = SettingsConfigDict(env_file=".env")
 
 settings = Settings()

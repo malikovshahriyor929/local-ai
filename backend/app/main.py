@@ -1,6 +1,7 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from app.config import settings
 from app.stt.base import BaseSTTEngine
 from app.stt.kotib_stt import KotibSTT
@@ -27,7 +28,7 @@ app.add_middleware(
 OUTPUT_DIR = Path(settings.audio_output_dir)
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-app.mount("/audio", __import__("fastapi").staticfiles.StaticFiles(directory=OUTPUT_DIR), name="audio")
+app.mount("/audio", StaticFiles(directory=OUTPUT_DIR), name="audio")
 
 stt_engine = None
 llm_client = None
