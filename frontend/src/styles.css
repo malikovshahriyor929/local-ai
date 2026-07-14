@@ -1,52 +1,13 @@
-:root {
-  font-family: Inter, system-ui, sans-serif;
-  background: #f5f7fb;
-  color: #1f2937;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
 }
-body, html, #root {
-  margin: 0;
-  min-height: 100%;
-}
-.app-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
-}
-section {
-  margin-bottom: 1.5rem;
-}
-section h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-}
-textarea {
-  width: 100%;
-  min-height: 120px;
-  padding: 0.8rem;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  resize: vertical;
-}
-input, select, button {
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-}
-button {
-  background: #2563eb;
-  color: white;
-  cursor: pointer;
-  margin-right: 0.75rem;
-}
-button:hover {
-  background: #1d4ed8;
-}
-pre {
-  background: #f3f4f6;
-  padding: 1rem;
-  border-radius: 12px;
-  overflow-x: auto;
+
+body {
+  font-family: Inter, system-ui, -apple-system, sans-serif;
 }

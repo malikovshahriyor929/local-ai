@@ -29,7 +29,12 @@ local-ai-voice/
 │   ├── scripts/              CLI utilities: dataset prep, benchmarking, inference, training stub
 │   ├── requirements.txt / pyproject.toml
 │   └── .env / .env.example (project-root .env.example is the template you copy)
-├── frontend/                 Vite + React web UI that talks to the backend on :8000
+├── frontend/                 Vite + React + TypeScript + Tailwind web UI (talks to backend on :8000)
+│   └── src/
+│       ├── App.tsx            Layout: speaker select, orb, transcript/answer, manual panel
+│       ├── components/
+│       │   └── VoiceOrb.tsx   Click-to-talk mic capture + canvas visualizer + /voice-chat
+│       └── lib/                 Typed API client (api.ts) + WAV encoder (wav.ts)
 ├── data/
 │   ├── speakers/              One folder per speaker, each with speaker.json
 │   ├── processed_audio/       Prepared per-speaker datasets (wavs/ + metadata.csv)
@@ -101,8 +106,38 @@ npm run dev
 # open http://localhost:5173
 ```
 
-The frontend is hardcoded to talk to `http://localhost:8000` (see `frontend/src/App.jsx`), so the
-backend must be running first.
+> **Do not open `frontend/index.html` directly or via a static file server (e.g. VS Code "Live
+> Server" on port 5500).** This is a Vite + React + TypeScript app — the browser needs Vite's dev
+> server to compile `.tsx` on the fly. Opening the raw HTML file serves an unprocessed
+> `<script src="/src/main.tsx">` that no browser can execute. Always use `npm run dev` and open
+> the URL Vite prints (`http://localhost:5173` by default; Vite listens on `::1`/`localhost`, so
+> use `localhost`, not `127.0.0.1`, if you ever curl it).
+
+The frontend talks to `http://localhost:8000` by default (see `frontend/src/lib/api.ts`; override
+with a `VITE_API_BASE` env var if you run the backend elsewhere), so the backend must be running
+first.
+
+### Click-to-talk voice UI
+
+The home page centers on an animated orb (`frontend/src/components/VoiceOrb.tsx`, canvas-based,
+reacts to your mic volume in real time — no external animation library):
+
+1. Click the orb → it requests microphone access and starts recording (browser will prompt for
+   mic permission the first time).
+2. Speak. The orb pulses with your voice; it auto-stops ~1.6s after you stop talking, or you can
+   click again to stop manually.
+3. The recorded WAV is sent to `POST /voice-chat`, which runs **STT → local LLM → TTS** in one
+   round trip using the models configured in `backend/.env`.
+4. The transcript and the AI's text answer appear below the orb, and the synthesized reply audio
+   plays automatically.
+
+This requires all three pieces to be reachable: the configured STT engine's dependency installed,
+a local LLM server running at `LLM_BASE_URL` (e.g. `ollama serve`), and `TTS_ENGINE`'s dependency
+installed. If any step fails, the orb turns red and shows the error message instead of silently
+hanging — check the `uvicorn` terminal for the underlying traceback.
+
+A collapsible "Qo'lda boshqarish" (manual control) panel below the orb also exposes plain text
+chat and file-upload transcription independently, for testing STT or TTS in isolation.
 
 **Important — engine dependencies are installed separately.** `backend/requirements.txt` only
 pulls in the FastAPI service itself. The actual STT/TTS engines are optional, heavier
