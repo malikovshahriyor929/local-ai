@@ -1,0 +1,8 @@
+{
+  "speaker_id": "user_voice",
+  "display_name": "Mening ovozim",
+  "type": "consented_voice_clone_reference",
+  "language": "uz",
+  "reference_audio": "reference.wav",
+  "permission": "owned_by_user"
+}

@@ -19,12 +19,38 @@ stt:
     repository: uzinfocom-edu-ai/asr-uz-fastconformer-large
     local_path: models/stt/fastconformer
     expected_size_gb: 1.2
+  # Fallback engine for the hybrid STT mode: FastConformer is more accurate on
+  # clean Uzbek, but can return an empty hypothesis on some real recordings;
+  # whisper then produces the transcript instead of an error.
+  whisper:
+    provider: huggingface
+    repository: Systran/faster-whisper-large-v3
+    local_path: models/stt/whisper-large-v3
+    expected_size_gb: 3.0
 tts:
+  # Default voice: built-in Uzbek speaker, fast CPU synthesis, no reference
+  # recording needed. Input is transliterated Latin -> Cyrillic before synthesis.
+  mms:
+    provider: huggingface
+    repository: facebook/mms-tts-uzb-script_cyrillic
+    local_path: models/tts/mms-uzbek
+    expected_size_gb: 0.2
   base:
     provider: huggingface
     repository: Qwen/Qwen3-TTS-12Hz-0.6B-Base
     local_path: models/tts/qwen3-tts-base
     expected_size_gb: 1.4
+  # The official fine-tuning recipe (apps/ai-service/finetuning/) hardcodes tensor adds between
+  # talker text_embedding and codec_embedding that only match in the 1.7B checkpoint (both 2048-dim
+  # there; in the 0.6B checkpoint text_embedding is 2048-dim but codec_embedding is 1024-dim, so
+  # fine-tuning crashes with a shape mismatch). Verified 2026-07-14 by inspecting both configs'
+  # talker_config.hidden_size on Hugging Face. Use this model only for scripts/train_tts_uzbek.py;
+  # the 0.6B `base` entry above is still what /api/tts/synthesize uses for zero-shot cloning.
+  finetune_base:
+    provider: huggingface
+    repository: Qwen/Qwen3-TTS-12Hz-1.7B-Base
+    local_path: models/tts/qwen3-tts-1.7b-base
+    expected_size_gb: 4.3
 embeddings:
   default:
     provider: huggingface

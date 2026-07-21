@@ -2,24 +2,13 @@
   "version": 1,
   "models": [
     {
-      "name": "embeddings",
-      "repository": "intfloat/multilingual-e5-small",
-      "revision": "main",
-      "filename": null,
-      "localPath": "models/embeddings/model",
-      "license": "See model repository",
-      "downloadDate": "2026-07-14T17:27:47.231443+00:00",
-      "sizeBytes": 0,
-      "status": "missing"
-    },
-    {
       "name": "llm",
       "repository": "bartowski/Qwen2.5-7B-Instruct-GGUF",
       "revision": "main",
       "filename": "Qwen2.5-7B-Instruct-Q4_K_M.gguf",
       "localPath": "models/llm/model.gguf",
       "license": "See model repository",
-      "downloadDate": "2026-07-14T17:48:31.751980+00:00",
+      "downloadDate": "2026-07-20T19:10:56.180008+00:00",
       "sizeBytes": 4683074240,
       "status": "valid"
     },
@@ -30,8 +19,19 @@
       "filename": null,
       "localPath": "models/stt/fastconformer",
       "license": "See model repository",
-      "downloadDate": "2026-07-14T17:48:32.060362+00:00",
+      "downloadDate": "2026-07-20T19:10:56.180612+00:00",
       "sizeBytes": 459227348,
+      "status": "valid"
+    },
+    {
+      "name": "stt-whisper",
+      "repository": "Systran/faster-whisper-large-v3",
+      "revision": "main",
+      "filename": null,
+      "localPath": "models/stt/whisper-large-v3",
+      "license": "See model repository",
+      "downloadDate": "2026-07-20T19:10:56.181105+00:00",
+      "sizeBytes": 3090839999,
       "status": "valid"
     },
     {
@@ -41,9 +41,42 @@
       "filename": null,
       "localPath": "models/tts/qwen3-tts-base",
       "license": "See model repository",
-      "downloadDate": "2026-07-14T17:48:32.363384+00:00",
+      "downloadDate": "2026-07-20T19:10:56.181626+00:00",
       "sizeBytes": 2516107404,
       "status": "valid"
+    },
+    {
+      "name": "tts-mms",
+      "repository": "facebook/mms-tts-uzb-script_cyrillic",
+      "revision": "main",
+      "filename": null,
+      "localPath": "models/tts/mms-uzbek",
+      "license": "See model repository",
+      "downloadDate": "2026-07-20T19:10:56.182343+00:00",
+      "sizeBytes": 290635897,
+      "status": "valid"
+    },
+    {
+      "name": "tts-finetune-base",
+      "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+      "revision": "main",
+      "filename": null,
+      "localPath": "models/tts/qwen3-tts-1.7b-base",
+      "license": "See model repository",
+      "downloadDate": "2026-07-20T19:10:56.182875+00:00",
+      "sizeBytes": 4544231051,
+      "status": "valid"
+    },
+    {
+      "name": "embeddings",
+      "repository": "intfloat/multilingual-e5-small",
+      "revision": "main",
+      "filename": null,
+      "localPath": "models/embeddings/model",
+      "license": "See model repository",
+      "downloadDate": "2026-07-20T19:10:56.183539+00:00",
+      "sizeBytes": 0,
+      "status": "missing"
     }
   ]
 }

@@ -1,0 +1,54 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+dist/
+build/
+.cache/
+.turbo/
+
+# OS
+.DS_Store
+
+# Env / secrets
+.env
+*.local
+
+# Gradio / runtime artifacts
+flagged/
+
+# Generated audio & large local data (keep manifests/metadata, not raw media)
+data/audio_output/
+data/raw_audio/
+data/tmp/
+*.wav
+*.mp3
+*.flac
+*.m4a
+!data/**/*.sample.wav
+
+# Recorded datasets and consent records are personal data - keep local only
+data/processed_audio/
+data/consent/
+
+# Trained model checkpoints - large binaries, machine-specific
+models/**
+!models/model-manifest.json
+!models/**/.gitkeep
+*.pth
+*.pt
+
+# Logs
+*.log
+
+# Project-local llama.cpp build output
+tools/llama.cpp/source/
+tools/llama.cpp/build*/

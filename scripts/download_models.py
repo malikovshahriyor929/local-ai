@@ -20,7 +20,15 @@ MANIFEST = ROOT / "models/model-manifest.json"
 def entries() -> dict[str, dict]:
     with CONFIG.open() as file:
         config = yaml.safe_load(file)
-    return {"llm": config["llm"]["default"], "stt": config["stt"]["default"], "tts": config["tts"]["base"], "embeddings": config["embeddings"]["default"]}
+    return {
+        "llm": config["llm"]["default"],
+        "stt": config["stt"]["default"],
+        "stt-whisper": config["stt"]["whisper"],
+        "tts": config["tts"]["base"],
+        "tts-mms": config["tts"]["mms"],
+        "tts-finetune-base": config["tts"]["finetune_base"],
+        "embeddings": config["embeddings"]["default"],
+    }
 
 
 def has_downloaded_payload(target: Path, entry: dict) -> bool:
@@ -91,12 +99,14 @@ def verify(selected: list[str]) -> int:
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("command", choices=["list", "download-llm", "download-stt", "download-tts", "download-embeddings", "download-all", "verify"])
+parser.add_argument("command", choices=["list", "download-llm", "download-stt", "download-stt-whisper", "download-tts", "download-tts-mms", "download-tts-finetune-base", "download-embeddings", "download-all", "verify"])
 args = parser.parse_args()
 models = entries()
 if args.command == "list":
     for key, value in models.items(): print(f"{key}: {value['repository']} → {value['local_path']} ({value.get('expected_size_gb', '?')} GB)")
 elif args.command == "verify": sys.exit(verify([]))
 else:
-    requested = list(models) if args.command == "download-all" else [args.command.removeprefix("download-")]
+    # tts-finetune-base is a large, situational asset (only needed to fine-tune, not for the
+    # default vertical slice) - keep it out of "download-all", require it by name.
+    requested = [k for k in models if k != "tts-finetune-base"] if args.command == "download-all" else [args.command.removeprefix("download-")]
     for key in requested: download(key, models[key])

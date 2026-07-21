@@ -5,3 +5,7 @@ requires-python = ">=3.11"
 
 [tool.uv.workspace]
 members = ["apps/ai-service", "packages/uzbek-text"]
+
+[tool.pytest.ini_options]
+pythonpath = ["apps/ai-service", "packages/uzbek-text"]
+testpaths = ["tests/unit"]
