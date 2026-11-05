@@ -96,3 +96,7 @@ No model weights are included in Git. Verified end-to-end on the current Mac set
 
 See [Windows AMD setup](docs/setup-windows-amd.md), [macOS setup](docs/setup-mac.md),
 [troubleshooting](docs/troubleshooting.md), and [TTS cloning/fine-tuning](docs/tts-finetuning.md).
+
+## License
+
+The code in this repository is released under the [MIT License](LICENSE). Model weights downloaded into `models/` are not part of this repository and keep their own licenses; check each model's Hugging Face page before redistributing them.
